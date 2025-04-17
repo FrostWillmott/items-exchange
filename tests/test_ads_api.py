@@ -8,7 +8,6 @@ class TestAdsAPI:
 
     @pytest.fixture(autouse=True)
     def create_ad(self, user1):
-        # создаём объявление до каждого теста
         return Ad.objects.create(
             user=user1,
             title='Test Ad',
@@ -48,7 +47,6 @@ class TestAdsAPI:
         assert not Ad.objects.filter(pk=create_ad.pk).exists()
 
     def test_search_and_filter(self, client1, user1):
-        # создаём дополнительные объявления
         Ad.objects.create(user=user1, title='Foo Bar', description='baz', category='cat1', condition='used')
         Ad.objects.create(user=user1, title='Another', description='something', category='cat2', condition='new')
 

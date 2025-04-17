@@ -22,12 +22,8 @@ class TestExchangeProposalAPI:
     def test_update_status_by_receiver(self, client1, client2):
         ep = ExchangeProposal.objects.create(ad_sender=self.ad1, ad_receiver=self.ad2, status='ожидает')
         url = reverse('exchangeproposal-detail', args=[ep.pk])
-
-        # не-получатель пытается обновить
         r_bad = client1.patch(url, {'status': 'принята'}, format='json')
         assert r_bad.status_code == status.HTTP_403_FORBIDDEN
-
-        # получатель обновляет
         r_good = client2.patch(url, {'status': 'принята'}, format='json')
         assert r_good.status_code == status.HTTP_200_OK
         ep.refresh_from_db()
