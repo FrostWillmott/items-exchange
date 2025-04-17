@@ -1,58 +1,58 @@
-# Items Exchange
+# Обмен Объявлениями
 
-API-driven platform for users to create, browse, and exchange classified ads. Built with Django, Django REST Framework, Django Filter, and drf-yasg for interactive API documentation.
-
----
-
-## Features
-
-- User authentication and ad ownership
-- CRUD operations on Ads via RESTful endpoints
-- Search by title/description, filter by category and condition
-- Pagination and ordering
-- Exchange proposals between users (with status flow)
-- Interactive Swagger UI documentation (`/docs/`)
-- Environment-based configuration with `.env`
-- Test suite powered by pytest and pytest-django
+Платформа с API для создания, просмотра и обмена объявлениями. Построена с использованием Django, Django REST Framework, django-filter и drf-yasg для интерактивной документации.
 
 ---
 
-## Prerequisites
+## Возможности
+
+- Аутентификация пользователей и владение объявлениями
+- CRUD-операции над объявлениями через REST API
+- Поиск по заголовку/описанию, фильтрация по категории и состоянию
+- Пагинация и сортировка
+- Предложения обмена между пользователями (с изменением статуса)
+- Интерактивная документация Swagger UI (`/docs/`)
+- Конфигурация через файл окружения `.env`
+- Набор тестов на базе pytest и pytest-django
+
+---
+
+## Требования
 
 - Python 3.12
-- [Poetry](https://python-poetry.org/) for dependency management
+- [Poetry](https://python-poetry.org/) для управления зависимостями
 
 ---
 
-## Installation
+## Установка
 
-1. **Clone the repository**
+1. **Склонируйте репозиторий**
 
    ```bash
-   git clone https://github.com/your-username/items_exchange.git
+   git clone https://github.com/FrostWillmott/items_exchange.git
    cd items_exchange
    ```
 
-2. **Configure Poetry** (in-project virtualenv)
+2. **Настройте Poetry** (виртуальное окружение в проекте)
 
    ```bash
    poetry config virtualenvs.in-project true --local
    poetry install
    ```
 
-3. **Create a `.env` file** at project root:
+3. **Создайте файл `.env`** в корне проекта:
 
    ```ini
    # .env
-   DJANGO_SECRET_KEY=your-secret-key
+   DJANGO_SECRET_KEY=ваш-секретный-ключ
    DJANGO_DEBUG=True
    DJANGO_ALLOWED_HOSTS=localhost,127.0.0.1
 
-   # Database (SQLite default)
+   # Настройки базы данных (по умолчанию SQLite)
    DB_ENGINE=django.db.backends.sqlite3
    DB_NAME=db.sqlite3
 
-   # (Optional) PostgreSQL example:
+   # (Опционально) Пример для PostgreSQL:
    # DB_ENGINE=django.db.backends.postgresql
    # DB_NAME=mydb
    # DB_USER=myuser
@@ -61,7 +61,7 @@ API-driven platform for users to create, browse, and exchange classified ads. Bu
    # DB_PORT=5432
    ```
 
-4. **Apply migrations**
+4. **Примените миграции**
 
    ```bash
    poetry run python manage.py migrate
@@ -69,67 +69,67 @@ API-driven platform for users to create, browse, and exchange classified ads. Bu
 
 ---
 
-## Running the Development Server
+## Запуск сервера разработки
 
 ```bash
 poetry run python manage.py runserver
 ```
 
-- Browse the site at `http://127.0.0.1:8000/`
-- API root lives under `/api/`
+- Откройте в браузере: `http://127.0.0.1:8000/`
+- Корневой API доступен по пути `/api/`
 
 ---
 
-## API Documentation (Swagger)
+## Документация API (Swagger)
 
-Navigate to:
+Перейдите по адресу:
 
 ```
 http://127.0.0.1:8000/docs/
 ```
 
-Use the interactive UI to explore endpoints, parameters, and try out calls.
+Используйте интерактивный интерфейс для изучения эндпоинтов, параметров и пробных запросов.
 
 ---
 
-## Running Tests
+## Запуск тестов
 
 ```bash
 poetry run pytest
 ```
 
-This will run all unit and integration tests with a temporary test database.
+Это запустит все модульные и интеграционные тесты с использованием временной тестовой базы.
 
 ---
 
-## Linting & Formatting
+## Линтинг и форматирование
 
-- **Ruff** for linting: `poetry run ruff .`
-- Configure your editor to respect `pyproject.toml` and `ruff.toml` rules.
-
----
-
-## Environment Settings
-
-`settings.py` reads from environment variables via `python-dotenv`. Key settings include:
-
-- **`DJANGO_SECRET_KEY`**: cryptographic key for Django
-- **`DJANGO_DEBUG`**: enable/disable debug mode
-- **`DJANGO_ALLOWED_HOSTS`**: comma-separated hosts
-- **`DB_*`**: database engine and credentials
+- **Ruff** для статического анализа: `poetry run ruff .`
+- Настройте редактор, чтобы он использовал правила из `pyproject.toml` и `ruff.toml`.
 
 ---
 
-## Contributing
+## Переменные окружения
 
-1. Fork the repo
-2. Create a feature branch (`git checkout -b feature/foo`)
-3. Commit your changes (`git commit -am "Add feature"`)
-4. Push to the branch (`git push origin feature/foo`)
-5. Open a Pull Request
+`settings.py` загружает настройки из переменных окружения через `python-dotenv`. Основные переменные:
+
+- **`DJANGO_SECRET_KEY`**: секретный ключ Django
+- **`DJANGO_DEBUG`**: включение/отключение режима отладки
+- **`DJANGO_ALLOWED_HOSTS`**: список разрешённых хостов через запятую
+- **`DB_*`**: параметры подключения к базе данных
 
 ---
 
-## License
+## Участие в проекте
 
-This project is MIT licensed. See [LICENSE](LICENSE) for details.
+1. Форкните репозиторий
+2. Создайте ветку для фичи (`git checkout -b feature/foo`)
+3. Внесите изменения и сделайте коммит (`git commit -am "Add feature"`)
+4. Запушьте ветку (`git push origin feature/foo`)
+5. Откройте Pull Request
+
+---
+
+## Лицензия
+
+Этот проект лицензирован под MIT. Подробнее в файле [LICENSE](LICENSE).
