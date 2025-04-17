@@ -120,15 +120,6 @@ poetry run pytest
 
 ---
 
-## Участие в проекте
-
-1. Форкните репозиторий
-2. Создайте ветку для фичи (`git checkout -b feature/foo`)
-3. Внесите изменения и сделайте коммит (`git commit -am "Add feature"`)
-4. Запушьте ветку (`git push origin feature/foo`)
-5. Откройте Pull Request
-
----
 
 ## Лицензия
 
